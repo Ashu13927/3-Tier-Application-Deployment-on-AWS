@@ -2,17 +2,35 @@
 
 steps
 
-step 1 : Vpc  create vpc >> ✅ Vpc & more >> auto-generate (fill name) >> ✅ no IPv6 cidr block >> availability zone ‘2’ >> public or private subnet ‘2’ >> you can customize (subnets cidr block  write in last size ’28’ instead of ’20’ in every line) >> nat gateway or vpc endpoint ‘none’ >> create 
+step 1 : Create VPC 
+
+step 2 : Vpc >> Create nat gateway 
+
+step 3 : Attache nate gatewat to private subnet 
+
+step 4 : Ec2 create 
+
+ // now launch public ec2 instance for access private Ec2
+	 
+step 5 : Create load balancer (left side of ec2) 
+
+//  Create connectivity between private or public Ec2 instance 
+
+//  Target group  go in your target group >> register targets >> select both private ec2 instance 
+
+6. RDS “rds connect to ec2”  create database
+   
+	 now connect rds or ec2
 
 
-step 2 : Vpc >> Nat Gateway “in left side”  create nat gateway >> put name >> subnet “choose public subnet” >> connectivity ✅ public >> click button “allocate elastic ip” >> create 
 
-step 3 : Attache nate gatewat to private subnet  go subnet >> select 1 subnet ‘private1’ >> route table (it’s link type) >> routes >> edit routes >> add routes (0.0.0.0/0 – select nate gateway – save changes) 
-				 go subnet >> select 1 subnet ‘private2’ >> route table (it’s link type) >> routes >> edit routes >> add routes (0.0.0.0/0 – select nate gateway – save changes) 
+Check // open terminal & connect to ec2  (now you are login public server) >> type sudo –I (now login private server)
+			telnet use for check connectivity 			 yum install telnet
+		now copy rds “end point”       type (telnet “paste endpoint” 3306)
 
-step 4 : Ec2 create  amazon – ssh,http,https – network setting (Edit >> select your VPC >> select subnet ‘private1’ ) >> luanch
-	  amazon – ssh,http,https – network setting (Edit >> select your VPC >> select subnet ‘private2’ ) >> launch
-	// now launch public ec2 instance for access private Ec2
-	  amazon – ssh,http,https – network setting (Edit >> select your VPC >> select subnet ‘public1’ >> enable “auto assign…” >> select existing security group ) >> launch
-step 5 : Create load balancer (left side of ec2)  create load balancer >> create “application load balancer” >> name >> ✅ internet facing or ipv4 >> net. Mapping (select your Vpc) – mappings (✅ us-east-1a “select (public1)” - ✅ us east 1b “public2”) >> security group “default or launch wizard 2” >> 
-	 listeners & reuting (create target group “instance – name – ✅http1” – next - create) than “select your target group” >> create
+
+
+
+// 3 tier application deployment  like Amazon website or google search engine (user search on website front end ‘tier 1’ to process in back end ‘tier 2’ to database ‘tier 3’  if database give ans to user )
+
+// 2 tier  like form filling, applying form, contact form (front end ‘tier 1’ to back end ‘tier 2’ to database ‘tier 3’  but in database not sending any data to users)
