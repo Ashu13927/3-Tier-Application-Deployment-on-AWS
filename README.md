@@ -18,7 +18,7 @@ step 5 : Create load balancer (left side of ec2)
 
 //  Target group  go in your target group >> register targets >> select both private ec2 instance 
 
-6. RDS “rds connect to ec2”  create database
+step 6 : RDS “rds connect to ec2”  create database
    
 	 now connect rds or ec2
 
